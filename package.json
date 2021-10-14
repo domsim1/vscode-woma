@@ -1,0 +1,25 @@
+{
+    "name": "woma",
+    "displayName": "Woma",
+    "description": "Woma Language Support",
+    "version": "0.0.1",
+    "engines": {
+        "vscode": "^1.60.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "woma",
+            "aliases": ["Woma", "woma"],
+            "extensions": [".w"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "woma",
+            "scopeName": "source.w",
+            "path": "./syntaxes/woma.tmLanguage.json"
+        }]
+    }
+}

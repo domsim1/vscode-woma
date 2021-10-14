@@ -1,0 +1,97 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Woma",
+	"patterns": [
+		{
+			"include": "#keywords"
+		},
+		{
+			"include": "#strings"
+		},
+		{
+			"include": "#literals"
+		},
+		{
+			"include": "#word-def"
+		},
+		{
+			"include": "#operators"
+		},
+		{
+			"include": "#char"
+		}
+	],
+	"repository": {
+		"keywords": {
+			"patterns": [
+			{
+				"name": "keyword.control.woma",
+				"match": "\\b(end|if|else|match|do|loop|while|for)\\b"
+			}
+		]
+		},
+		"operators": {
+			"patterns": [
+				{
+					"name": "keyword.operator.arithmetic.woma",
+					"match": "(\\+|-|<|>)"
+				}
+			]
+		},
+		"word-def": {
+			"name": "meta.function.definition.woma",
+			"begin": "\\b(def)\\s+([a-zA-Z0-9_]+)\\s+(\\()\\s+((?:\\w+\\s+)*)(--)((?:\\s+\\w+)*)\\s+(\\))",
+			"beginCaptures": {
+				"1": {
+					"name": "keyword.control.def.woma"
+				},
+				"2": {
+					"name": "entity.name.function.woma"
+				},
+				"3": {
+					"name": "keyword.operator.start.type.woma"
+				},
+				"4": {
+					"name": "support.type.primitive"
+				},
+				"5": {
+					"name": "keyword.operator.mid.type.woma"
+				},
+				"6": {
+					"name": "support.type.primitive"
+				},
+				"7": {
+					"name": "keyword.operator.end.type.woma"
+				}
+			},
+			"end": "\\s"
+		},
+		"literals": {
+			"name": "constant.numeric.woma",
+			"match": "\\b[0-9]+\\b"
+		},
+		"strings": {
+			"name": "string.quoted.double.woma",
+			"begin": "\"",
+			"end": "\"",
+			"patterns": [
+				{
+					"name": "constant.character.escape.woma",
+					"match": "\\\\."
+				}
+			]
+		},
+		"char": {
+			"name": "string.quoted.single.woma",
+			"begin": "'",
+			"end": "'",
+			"patterns": [
+				{
+					"name": "constant.character.escape",
+					"match": "\\\\"
+				}
+			]
+		}
+	},
+	"scopeName": "source.w"
+}
